@@ -6,7 +6,7 @@ Week 1 individual task at HPDF
 1. Open the terminal.
 1. Make sure that Node.js is installed by typing : `node -v`
 
-   This should give the version of Node.js installde
+   This should give the version of Node.js installed.
 1. Navigate to "hpdf-week-1" directory in the terminal.
 1. Type `npm install` to install all the required dependencies.
 1. Run the server by typing `node server.js`.
