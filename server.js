@@ -13,10 +13,12 @@ const urlencodedParser = bodyparser.urlencoded({extended : true});
 app.use(cookieParser());
 
 app.get('/', function(req, res){
+  console.log("GET request to route /");
   res.send("Hello World - Aditya");
 });
 
 app.get('/authors', function(req, res){
+  console.log("GET request to route /authors");
   request('https://jsonplaceholder.typicode.com/users', function(err, response, body){
     if(err){
       console.log(err);
@@ -64,6 +66,7 @@ app.get('/authors', function(req, res){
 });
 
 app.get('/setcookie', function(req, res){
+  console.log("GET request to route /setcookie");
   //Check if cookies already set
   if(req.cookies.name === undefined || req.cookies.age === undefined){
     //Set cookies
@@ -76,6 +79,7 @@ app.get('/setcookie', function(req, res){
 });
 
 app.get('/getcookies', function(req, res){
+  console.log("GET request to route /getcookies");
   //Check if cookies are set
   if(req.cookies.name == undefined){
     res.send("Cookies not set");
@@ -87,23 +91,28 @@ app.get('/getcookies', function(req, res){
 });
 
 app.get('/robots.txt', function(req, res){
+  console.log("GET request to route /robots.txt");
   res.status(403).send("Access Denied");
 });
 
 app.get('/image', function(req, res){
+  console.log("GET request to route /image");
   res.sendFile(path.join(__dirname, 'resources', '1.jpg'));
 });
 
 app.get('/html', function(req, res){
+  console.log("GET request to route /html");
   res.sendFile(path.join(__dirname, 'views', 'welcome.html'));
 });
 
 app.get('/input', function(req, res){
+  console.log("GET request to route /input")
   res.sendFile(path.join(__dirname, 'views', 'input.html'));
 });
 
 app.post('/submit',urlencodedParser, function(req, res){
-  console.log(req.body.value);
+  console.log("POST request to route /submit");
+  console.log("Submitted Value : " + req.body.value);
   res.send("Form submitted");
 });
 
